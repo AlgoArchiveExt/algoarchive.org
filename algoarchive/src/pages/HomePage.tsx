@@ -1,8 +1,11 @@
 import React from 'react'
-
+import WaitlistHeroSection from "../components/WaitlistHeroSection"
+import '../main.css';
 const HomePage = () => {
   return (
-    <div>algoArchive</div>
+    <div>
+      <WaitlistHeroSection />
+    </div>
   )
 }
 
