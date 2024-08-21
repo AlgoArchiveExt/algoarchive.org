@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Img } from 'react-image';
-import imageSrc from '../assets/algo-ext.png';
+import imageSrc from '../../public/assets/algo-ext.png';
+import Image from 'next/image';
 
 export default function HeroSection() {
   return (
@@ -32,9 +32,8 @@ export default function HeroSection() {
             Connect your LeetCode account to sync your solutions directly to your GitHub repository. Keep track of your progress and showcase your skills effortlessly.
           </p>
           <div className="relative h-60 w-full mx-auto">
-            <Img
+            <Image
               src={imageSrc}
-
               className="rounded-lg w-full h-60 object-contain"
               alt="Extension Demo"
             />

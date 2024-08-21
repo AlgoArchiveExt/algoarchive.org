@@ -1,11 +1,17 @@
 import React from 'react'
 import WaitlistHeroSection from "../components/WaitlistHeroSection"
-import '../main.css';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Home | AlgoArchive',
+  description: 'Home page',
+}
+
 const HomePage = () => {
   return (
-    <div>
+    <main>
       <WaitlistHeroSection />
-    </div>
+    </main>
   )
 }
 
