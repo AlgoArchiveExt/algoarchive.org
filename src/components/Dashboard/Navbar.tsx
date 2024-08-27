@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Dropdown, DropdownTrigger, Button, DropdownMenu, DropdownItem } from "@nextui-org/react";
 import Logo from './Logo';
-import { Home, ChevronDown, Flashcards, Chatbot, Features } from "./Icons"
+import { Home, ChevronDown, Flashcards, Chatbot, Features, Analytics } from './Icons';
 
 
 export default function Nav() {
@@ -15,8 +15,8 @@ export default function Nav() {
 
   return (
     <div className="p-6 w-1/2 h-screen bg-background z-20 fixed top-0 -left-96 lg:left-0 lg:w-60 flex flex-col">
-      <div className="border-b border-gray-100 pb-4">
-        <div className="flex-shrink-0 ml-10">
+      <div className="border-b border-gray-100 pb-8">
+        <div className="flex flex-grow justify-center items-center">
           <Logo />
         </div>
       </div>
@@ -73,10 +73,23 @@ export default function Nav() {
             </DropdownItem>
             </DropdownMenu>
             </Dropdown>
+            <Button
+              href='/dashboard'    
+              as={Link}
+              disableRipple
+              className="justify-center w-full bg-transparent data-[hover=true]:bg-[#4a4a4a] data-[hover=true]:text-algo-yellow transition duration-300 "
+              radius="sm"
+              variant="light"
+            >
+            <Analytics />
+            <p className="hover:text-algo-yellow transition-colors transitionDuration text-lg font-semibold mr-8">Analytics</p>
+          </Button>
         </div>
       </div>
       <div className="my-4 justify-end">
         {/* logout */}
+        <div className="border-t border-gray-100 pb-8">
+        </div>
         <h3 className="flex justify-center text-white">Logout</h3>
       </div>
     </div>

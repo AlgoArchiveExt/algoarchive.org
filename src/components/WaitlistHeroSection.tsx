@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   return (
-    <section className="bg-[#333333] text-white py-20 px-4">
+    <section className="text-white py-20 px-4">
       <div className="container mx-auto text-center">
         <h1 className="text-4xl font-bold mb-4">Sync LeetCode with GitHub</h1>
         <p className="text-lg mb-8">
