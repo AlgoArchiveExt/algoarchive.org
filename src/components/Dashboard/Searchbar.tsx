@@ -1,4 +1,6 @@
-import React, {forwardRef} from "react";
+'use client'; 
+
+import React, {forwardRef, useState} from "react";
 import {useInput} from "@nextui-org/react";
 import {SearchIcon} from "./Icons";
 import {CloseFilledIcon} from "./Icons";
@@ -29,6 +31,9 @@ const styles = { //search bar styling
 };
 
 const MyInput = forwardRef((props, ref) => {
+  
+  const [isFocused, setIsFocused] = useState(false);
+
   const {
     Component,
     label,
@@ -56,7 +61,9 @@ const MyInput = forwardRef((props, ref) => {
     type: "search",
     placeholder: "Type to search...",
     startContent: (
-      <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
+      <SearchIcon
+      className={`mb-1 dark:text-white/90 pointer-events-none flex-shrink-0 ${isFocused ? 'text-algo-yellow' : 'text-algo-disabled'}`}
+    />
     ),
     // custom styles
     classNames: {
@@ -79,7 +86,11 @@ const MyInput = forwardRef((props, ref) => {
       return (
         <div {...getInnerWrapperProps()}>
           {startContent}
-          <input {...getInputProps()} />
+          <input
+            {...getInputProps()}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+          />
           {end}
         </div>
       );

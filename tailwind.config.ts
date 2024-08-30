@@ -14,6 +14,8 @@ export default {
       colors: {
         'algo-yellow': '#ee9b01',  
         'algo-brown' : '#775F48',
+        'algo-disabled' : '#989898',
+        'algo-gray' : '#333333',
       },
       backgroundColor: {
         'hover-algo-yellow': '#ee9b01',
