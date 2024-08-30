@@ -32,7 +32,7 @@ export default {
           /* For later if we want to further customize anything */
         },
         colors: {
-          background: "#282828",
+          background: "#989898",
           foreground: "#ffffff",
           primary: {
             DEFAULT:"#ffffff",
