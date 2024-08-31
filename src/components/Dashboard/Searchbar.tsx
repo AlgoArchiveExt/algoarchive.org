@@ -75,7 +75,7 @@ const MyInput = forwardRef((props, ref) => {
 
   const end = React.useMemo(() => {
     if (isClearable) {
-      return <span {...getClearButtonProps()}>{endContent || <CloseFilledIcon />}</span>;
+      return <span {...getClearButtonProps()}>{endContent || <CloseFilledIcon className={`text-[#da554e]`} />}</span>;
     }
 
     return endContent;
