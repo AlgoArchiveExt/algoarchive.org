@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu} from "@nextui-org/react";
 import {ChevronDown, Flashcards, Chatbot} from "./Icons"
 import Logo from "./Logo";

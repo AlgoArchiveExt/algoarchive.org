@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Searchbar from './Searchbar';
 import Submissions from './Submissions';
 
