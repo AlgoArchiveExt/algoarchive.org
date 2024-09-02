@@ -93,32 +93,32 @@ const Submissions = () => {
     }, []);
     
     const renderedCards = submissions.map((submission) => (
-        <Card key={submission.id} className='w-full h-60 flex flex-col bg-gradient-to-r from-algo-gray to-[#222222]'>
+        <Card key={submission.id} className='w-full h-80 flex flex-col bg-gradient-to-r from-algo-gray to-[#222222]'>
             <CardHeader className="items-center justify-center flex-shrink-0">
-                <h2 className="text-algo-yellow truncate text-center text-large font-bold">{submission.problem_name}</h2>
+                <h2 className="text-algo-yellow text-center text-2xl font-extrabold">{submission.problem_name}</h2>
             </CardHeader>
             <CardBody className="flex-grow overflow-auto">
                 {submission.description !== '' && (
                     <>
-                        <h3 className="text-base font-semibold text-[#5edefe]">Problem Description:</h3>
-                        <p className="text-sm truncate">{submission.description}</p>
+                        <h3 className="text-lg font-bold text-[#5edefe]">Problem Description:</h3>
+                        <p className="text-base">{submission.description}</p>
                     </>
                 )}
                 {submission.notes !== '' && (
                     <>
-                        <h3 className="text-base font-semibold text-[#9048b4]">Notes: </h3>
-                        <p className="text-sm truncate">{submission.notes}</p>
+                        <h3 className="text-lg font-bold text-[#9048b4]">Notes: </h3>
+                        <p className="text-base">{submission.notes}</p>
                     </>
                 )}
                 {submission.code !== '' && (
                     <>
-                        <h3 className="text-base font-semibold text-[#3fc86f]">Your Solution: </h3>
-                        <p className="text-sm truncate">{submission.code}</p>
+                        <h3 className="text-lg font-bold text-[#3fc86f]">Your Solution: </h3>
+                        <p className="text-base">{submission.code}</p>
                     </>
                 )}
             </CardBody>
             <CardFooter >
-                <h3 className="text-xs font-semibold text-algo-yellow absolute right-2 pb-4">Solved Using: {submission.language}</h3>
+                <h3 className="text-sm font-semibold text-algo-yellow absolute right-2 pb-4">Solved Using: {submission.language}</h3>
             </CardFooter>
         </Card>
     ));
