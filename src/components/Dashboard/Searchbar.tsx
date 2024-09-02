@@ -32,7 +32,7 @@ const styles = {
   ],
 };
 
-const MyInput = forwardRef((props, ref) => {
+const MyInput = forwardRef((props, ref: any) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const {

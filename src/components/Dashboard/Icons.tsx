@@ -1,6 +1,17 @@
 import React from 'react';
 
-export const ChevronDown = ({ fill, size, height, width, ...props }) => {
+export const ChevronDown = ({
+  fill,
+  size,
+  height,
+  width,
+  ...props
+}: {
+  fill: string;
+  size?: number;
+  height?: number;
+  width?: number;
+}) => {
   return (
     <svg
       fill="none"
@@ -147,7 +158,7 @@ export const Analytics = () => {
   );
 };
 
-export const SearchIcon = (props) => {
+export const SearchIcon = (props: any) => {
   return (
     <svg
       aria-hidden="true"
@@ -171,7 +182,7 @@ export const SearchIcon = (props) => {
   );
 };
 
-export const CloseFilledIcon = (props) => {
+export const CloseFilledIcon = (props: any) => {
   return (
     <svg
       aria-hidden="true"
