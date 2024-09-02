@@ -1,5 +1,6 @@
 import Searchbar from './Searchbar';
 import Submissions from './Submissions';
+import { Suspense } from 'react';
 
 const Hero = () => {
   return (
@@ -9,7 +10,9 @@ const Hero = () => {
       </h1>
       <h2 className="text-2xl font-semibold text-white">Check your studying progress below</h2>
       <Searchbar />
-      <Submissions />
+      <Suspense fallback={<p>Loading Submissions...</p>}>
+        <Submissions />
+      </Suspense>
     </div>
   );
 };
