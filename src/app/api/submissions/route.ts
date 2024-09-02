@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+export const runtime = 'edge';
+
+export default async function GET() {
   const token = process.env.GITHUB_ACCESS_TOKEN;
 
   if (!token) {
