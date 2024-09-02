@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
-export default async function GET() {
+export default async function handler() {
   const token = process.env.GITHUB_ACCESS_TOKEN;
 
   if (!token) {
