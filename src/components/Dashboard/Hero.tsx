@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+
 import Searchbar from './Searchbar';
 import Submissions from './Submissions';
 
