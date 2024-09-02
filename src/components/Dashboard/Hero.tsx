@@ -1,6 +1,6 @@
+import { Suspense } from 'react';
 import Searchbar from './Searchbar';
 import Submissions from './Submissions';
-import { Suspense } from 'react';
 
 const Hero = () => {
   return (

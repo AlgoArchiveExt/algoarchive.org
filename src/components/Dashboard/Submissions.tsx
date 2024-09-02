@@ -139,7 +139,7 @@ const Submissions = () => {
   }
 
   return (
-    <div className="w-full flex justify-center items-center">
+    <div className="flex w-full items-center justify-center">
       {error ? (
         <p className="text-xl font-extrabold text-red-500">{error}</p>
       ) : (
