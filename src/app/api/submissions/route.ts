@@ -11,9 +11,9 @@ export async function GET() {
     const response = await fetch('http://localhost:8000/api/v1/solutions/algoarchiveext/commit-testing', {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      }
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
     });
 
     if (!response.ok) {
@@ -21,9 +21,11 @@ export async function GET() {
     }
 
     const data = await response.json();
+
     return NextResponse.json(data, { status: 200 });
   } catch (error) {
     console.error('Error when fetching solutions:', error);
+
     return NextResponse.json({ error: 'Failed to fetch submissions' }, { status: 500 });
   }
 }

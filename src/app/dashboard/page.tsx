@@ -1,14 +1,15 @@
-"use client";
+'use client';
 
 import React from 'react';
-import Nav from '@/src/components/Dashboard/Navbar';
-import Hero from '@/src/components/Dashboard/Hero';
 
-export default function page(){
+import Hero from '@/src/components/Dashboard/Hero';
+import Nav from '@/src/components/Dashboard/Navbar';
+
+export default function page() {
   return (
     <main className="algoarchive">
-        <Nav />
-        <Hero />
+      <Nav />
+      <Hero />
     </main>
-  )
+  );
 }
