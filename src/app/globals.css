@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
- background:#1a1a1a;
+ background:#333333;
  min-height: 100vh;
  font-family: 'Lexend', sans-serif;
 }
