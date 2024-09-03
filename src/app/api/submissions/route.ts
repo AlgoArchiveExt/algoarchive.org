@@ -10,7 +10,7 @@ export async function GET() {
   }
 
   try {
-    const response = await fetch('http://localhost:8000/api/v1/solutions/algoarchiveext/commit-testing', {
+    const response = await fetch('https://api.algoarchive.org/api/v1/solutions/algoarchiveext/commit-testing', {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
