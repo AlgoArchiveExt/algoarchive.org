@@ -7,16 +7,17 @@ export const metadata: Metadata = {
 
 export default function Waitlist() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#333333]">
-      <main className="text-center p-6 bg-white shadow-lg rounded-lg">
-        <h1 className="text-3xl font-bold mb-4">Join the Waitlist</h1>
-        <p className="text-lg mb-6">Sign up below to be the first to know when we launch!</p>
+    <div className="flex min-h-screen flex-col items-center justify-center bg-algo-gray">
+      <main className="rounded-lg bg-white p-6 text-center shadow-lg">
+        <h1 className="mb-4 text-3xl font-bold">Join the Waitlist</h1>
+        <p className="mb-6 text-lg">Sign up below to be the first to know when we launch!</p>
         <iframe
           src="https://tally.so/embed/m6RM2A?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
           width="100%"
           height={500}
           title="Waitlist Form"
-          className="rounded-lg overflow-auto" />
+          className="overflow-auto rounded-lg"
+        />
       </main>
     </div>
   );
