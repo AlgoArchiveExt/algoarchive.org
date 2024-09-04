@@ -1,17 +1,20 @@
+import React from 'react'
 import { Metadata } from 'next';
-import React from 'react';
-
-import WaitlistHeroSection from '../components/WaitlistHeroSection';
+import HeroSection from '../components/home/HeroSection';
+import FeaturesSection from '../components/home/FeaturesSection';
+import TeamSection from '../components/home/TeamSection';
 
 export const metadata: Metadata = {
-  title: 'Home | AlgoArchive',
-  description: 'Home page',
-};
+  title: "AlgoArchive - Automate Your LeetCode Journey",
+  description: "Effortlessly sync your LeetCode solutions with GitHub using AlgoArchive.",
+}
 
 const HomePage = () => {
   return (
     <main>
-      <WaitlistHeroSection />
+      <HeroSection />
+      <FeaturesSection />
+      <TeamSection />
     </main>
   );
 };
