@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 
+import { useProfile } from '../ProfileContext';
 import Searchbar from '../dashboard/Searchbar';
 import Submissions from '../dashboard/Submissions';
 

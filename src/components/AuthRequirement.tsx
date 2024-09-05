@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 
-import { useProfile } from '../components/ProfileContext';
+import { useProfile } from './ProfileContext';
 
 const AuthRequirement = (WrappedComponent: React.ComponentType) => {
   const RequireAuthComponent = (props: any) => {
