@@ -3,14 +3,14 @@ import { NextResponse } from 'next/server';
 export const runtime = 'edge';
 
 export async function GET() {
-  const token = process.env.GITHUB_ACCESS_TOKEN;
+  const token = localStorage.getItem('githubAccessToken');
 
   if (!token) {
     return NextResponse.json({ error: 'GitHub Access Token is not set' }, { status: 500 });
   }
 
   try {
-    const response = await fetch('https://api.algoarchive.org/api/v1/solutions/algoarchiveext/commit-testing', {
+    const response = await fetch('https://api.algoarchive.org/v1/solutions/algoarchiveext/commit-testing', {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
