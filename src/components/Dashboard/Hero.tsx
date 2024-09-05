@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
-import Searchbar from './Searchbar';
-import Submissions from './Submissions';
+import Searchbar from '../dashboard/Searchbar';
+import Submissions from '../dashboard/Submissions';
 
 const Hero = () => {
   return (
