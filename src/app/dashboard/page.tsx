@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import Hero from '@/src/components/Dashboard/Hero';
-import Nav from '@/src/components/Dashboard/Navbar';
+import Hero from '@/src/components/dashboard/Hero';
+import Nav from '@/src/components/dashboard/Navbar';
 
 export default function page() {
   return (
