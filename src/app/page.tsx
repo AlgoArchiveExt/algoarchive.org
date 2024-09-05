@@ -24,7 +24,7 @@ const HomePage = () => {
 
   return (
     <main className="algoarchive">
-      {isSignedIn && <Nav />}
+      <Nav />
       <HeroSection />
       <FeaturesSection />
       <TeamSection />
