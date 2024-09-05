@@ -18,9 +18,9 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
     profileUrl: null,
     name: null,
   });
-  const [alertShown, setAlertShown] = useState(false);
 
   useEffect(() => {
+    //const githubAccessToken = localStorage.getItem('githubAccessToken'); //production
     const githubAccessToken = ''; //testing
     if (githubAccessToken) {
       fetch('https://api.github.com/user', {
@@ -48,11 +48,8 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
           }
         })
         .catch(error => console.error('Error fetching GitHub profile:', error));
-    } else if (!alertShown) {
-      alert('Please sign in using the extension, instructions can be found on the Home page.');
-      setAlertShown(true);
-    }
-  }, [alertShown]);
+    } 
+  }, []);
 
   return (
     <ProfileContext.Provider value={profile}>
