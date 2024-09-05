@@ -4,7 +4,7 @@ import React from 'react';
 
 import AuthRequirement from '@/src/components/AuthRequirement';
 import Hero from '@/src/components/dashboard/Hero';
-import Nav from '@/src/components/dashboard/Navbar';
+import Nav from '@/src/components/Navbar';
 
 const page = () => {
   return (

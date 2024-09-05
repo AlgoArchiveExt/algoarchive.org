@@ -2,10 +2,10 @@
 
 import React, { useEffect, useState } from 'react';
 
-import Nav from '../components/dashboard/Navbar';
 import FeaturesSection from '../components/home/FeaturesSection';
 import HeroSection from '../components/home/HeroSection';
 import TeamSection from '../components/home/TeamSection';
+import Nav from '../components/Navbar';
 import { useProfile } from '../components/ProfileContext';
 
 const HomePage = () => {
