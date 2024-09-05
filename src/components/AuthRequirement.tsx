@@ -9,8 +9,13 @@ const AuthRequirement = (WrappedComponent: React.ComponentType) => {
     const userProfile = useProfile();
     const router = useRouter();
 
+    if(userProfile)
+      console.log('userProfile:', 'exists');
+    else
+      console.log('userProfile:', 'does not exist');
+
     useEffect(() => {
-      if (!userProfile || !userProfile.name || userProfile.name === '') {
+      if (!userProfile) {
         router.push('/');
       }
     }, [userProfile, router]);

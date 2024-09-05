@@ -10,7 +10,6 @@ import {
   NavbarContent,
   NavbarItem,
   User,
-  Avatar
 } from '@nextui-org/react';
 
 import { Chatbot, ChevronDown, Flashcards } from './Icons';
@@ -27,8 +26,6 @@ export default function Nav() {
     chatbot: <Chatbot />,
     flashcards: <Flashcards />,
   };
-
-  if(userProfile) {
     return (
       <Navbar shouldHideOnScroll className="flex flex-col">
       <NavbarBrand>
@@ -142,7 +139,7 @@ export default function Nav() {
               >
                 <DropdownItem
                   key="chatbot"
-                  href="https://algoarchive-assistant-beta-v02-anthonys-projects-8b33104f.vercel.app"
+                  href="/chatbot"
                   target="_blank"
                   description="If you'd like further assistance, we offer a chatbot to assist you. Ask it anything!"
                   startContent={icons.chatbot}
@@ -182,10 +179,3 @@ export default function Nav() {
       </Navbar>
     );
   }
-  else{
-    return (
-      <>
-      </>
-    );
-  }
-}
