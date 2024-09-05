@@ -1,28 +1,40 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useProfile } from '../components/ProfileContext';
 
+import Nav from '../components/dashboard/Navbar';
 import FeaturesSection from '../components/home/FeaturesSection';
 import HeroSection from '../components/home/HeroSection';
 import TeamSection from '../components/home/TeamSection';
-import Nav from '../components/dashboard/Navbar';
+import { useProfile } from '../components/ProfileContext';
 
-const HomePage = () => {  
-  const userProfile = useProfile() as { name: string } | null;
+const HomePage = () => {
+  const userProfile = useProfile() as any;
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [alertShown, setAlertShown] = useState(false);
-  
-  if(!userProfile){
-    useEffect(() => {
-      if (userProfile !== null) {
-        setIsSignedIn(true);
-      } else if (!alertShown && (userProfile === null )) {
-        alert('Loading...\n In case you haven\'t already signed in, please sign in with your GitHub account to access all features.');
-        setAlertShown(true);
-      }
-    }, [userProfile, alertShown]);
-  }
+
+  useEffect(() => {
+    if (
+      userProfile &&
+      userProfile.name !== null &&
+      userProfile.username !== null &&
+      userProfile.avatarUrl !== null &&
+      userProfile.profileUrl !== null
+    ) {
+      setIsSignedIn(true);
+    } else if (
+      !alertShown &&
+      (userProfile.name === null ||
+        userProfile.username === null ||
+        userProfile.avatarUrl === null ||
+        userProfile.profileUrl === null)
+    ) {
+      alert(
+        "Loading...\n In case you haven't already signed in, please sign in with your GitHub account to access all features.",
+      );
+      setAlertShown(true);
+    }
+  }, [userProfile, alertShown]);
 
   return (
     <main className="algoarchive">

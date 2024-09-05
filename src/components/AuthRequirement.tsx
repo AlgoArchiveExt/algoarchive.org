@@ -1,27 +1,34 @@
 'use client';
 
-import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import React, { useEffect } from 'react';
+
 import { useProfile } from '../components/ProfileContext';
 
 const AuthRequirement = (WrappedComponent: React.ComponentType) => {
-  return (props: any) => {
-    const userProfile = useProfile();
+  const RequireAuthComponent = (props: any) => {
+    const userProfile = useProfile() as any;
     const router = useRouter();
 
-    if(userProfile)
-      console.log('userProfile:', 'exists');
-    else
-      console.log('userProfile:', 'does not exist');
-
     useEffect(() => {
-      if (!userProfile) {
+      if (
+        userProfile.name === null ||
+        userProfile.username === null ||
+        userProfile.avatarUrl === null ||
+        userProfile.profileUrl === null
+      ) {
         router.push('/');
       }
     }, [userProfile, router]);
 
     return <WrappedComponent {...props} />;
   };
+
+  RequireAuthComponent.displayName = `AuthRequirement(${
+    WrappedComponent.displayName || WrappedComponent.name || 'Component'
+  })`;
+
+  return RequireAuthComponent;
 };
 
 export default AuthRequirement;

@@ -11,11 +11,11 @@ import {
   NavbarItem,
   User,
 } from '@nextui-org/react';
+import { usePathname } from 'next/navigation';
 
+import { useProfile } from '../ProfileContext';
 import { Chatbot, ChevronDown, Flashcards } from './Icons';
 import Logo from './Logo';
-import { useProfile } from '../ProfileContext';
-import { usePathname } from 'next/navigation';
 
 export default function Nav() {
   const userProfile = useProfile();
@@ -26,12 +26,13 @@ export default function Nav() {
     chatbot: <Chatbot />,
     flashcards: <Flashcards />,
   };
-    return (
-      <Navbar shouldHideOnScroll className="flex flex-col">
+
+  return (
+    <Navbar shouldHideOnScroll className="flex flex-col">
       <NavbarBrand>
         <Logo />
-      </NavbarBrand>      
-      {(pathname === '/dashboard') ? (
+      </NavbarBrand>
+      {pathname === '/dashboard' ? (
         <>
           <NavbarContent className="hidden gap-4 sm:flex" justify="center">
             <NavbarItem>
@@ -88,18 +89,19 @@ export default function Nav() {
           </NavbarContent>
           <NavbarContent justify="end">
             <User
-              name = {
-                <p className='pointer-events-none'>
-                  {userProfile?.name}
-                </p>
-              }
-              description = {
-                <Link href={userProfile?.profileUrl ?? ''} size="sm" isExternal className='text-xs text-white hover:text-algo-yellow transition-colors'>
+              name={<p className="pointer-events-none">{userProfile?.name}</p>}
+              description={
+                <Link
+                  href={userProfile?.profileUrl ?? ''}
+                  size="sm"
+                  isExternal
+                  className="text-xs text-white transition-colors hover:text-algo-yellow"
+                >
                   {userProfile?.username}
                 </Link>
               }
               avatarProps={{ src: userProfile?.avatarUrl ?? '' }}
-              className='text-algo-yellow hover:text-[#e6cda8] transition-colors'
+              className="text-algo-yellow transition-colors hover:text-[#e6cda8]"
             />
           </NavbarContent>
         </>
@@ -107,7 +109,10 @@ export default function Nav() {
         <>
           <NavbarContent className="hidden gap-4 sm:flex" justify="center">
             <NavbarItem>
-              <Link href="/dashboard" className="transitionDuration text-lg text-white transition-colors hover:text-algo-yellow">
+              <Link
+                href="/dashboard"
+                className="transitionDuration text-lg text-white transition-colors hover:text-algo-yellow"
+              >
                 Dashboard
               </Link>
             </NavbarItem>
@@ -160,22 +165,23 @@ export default function Nav() {
           </NavbarContent>
           <NavbarContent justify="end">
             <User
-              name = {
-                <p className='pointer-events-none'>
-                  {userProfile?.name}
-                </p>
-              }
-              description = {
-                <Link href={userProfile?.profileUrl ?? ''} size="sm" isExternal className='text-xs text-white hover:text-algo-yellow transition-colors'>
+              name={<p className="pointer-events-none">{userProfile?.name}</p>}
+              description={
+                <Link
+                  href={userProfile?.profileUrl ?? ''}
+                  size="sm"
+                  isExternal
+                  className="text-xs text-white transition-colors hover:text-algo-yellow"
+                >
                   {userProfile?.username}
                 </Link>
               }
               avatarProps={{ src: userProfile?.avatarUrl ?? '' }}
-              className='text-algo-yellow hover:text-[#e6cda8] transition-colors'
+              className="text-algo-yellow transition-colors hover:text-[#e6cda8]"
             />
           </NavbarContent>
         </>
       )}
-      </Navbar>
-    );
-  }
+    </Navbar>
+  );
+}

@@ -1,6 +1,7 @@
 import './globals.css';
 
 import { NextUIProvider } from '@nextui-org/react';
+
 import { ProfileProvider } from '../components/ProfileContext';
 
 export default function RootLayout({
@@ -14,9 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NextUIProvider>
-          <ProfileProvider>
-            {children}
-          </ProfileProvider>
+          <ProfileProvider>{children}</ProfileProvider>
         </NextUIProvider>
       </body>
     </html>
