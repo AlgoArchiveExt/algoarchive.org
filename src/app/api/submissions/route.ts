@@ -3,7 +3,8 @@ import { NextResponse } from 'next/server';
 export const runtime = 'edge';
 
 export async function GET() {
-  const token = localStorage.getItem('githubAccessToken');
+  // const token = localStorage.getItem('githubAccessToken'); //production
+  const token = process.env.GITHUB_ACCESS_TOKEN; //development
 
   if (!token) {
     return NextResponse.json({ error: 'GitHub Access Token is not set' }, { status: 500 });
