@@ -3,7 +3,7 @@
 import React from 'react';
 
 import Hero from '@/src/components/dashboard/Hero';
-import Nav from '@/src/components/dashboard/Navbar';
+import Nav from '@/src/components/Navbar';
 
 export default function page() {
   return (
