@@ -4,13 +4,15 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-  Link,
+  Link as NextUILink,
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
   User
 } from '@nextui-org/react';
+
+import Link from 'next/link';
 
 import { usePathname } from 'next/navigation';
 
@@ -92,14 +94,14 @@ export default function Nav() {
             <User
               name={<p className="pointer-events-none">{userProfile?.name}</p>}
               description={
-                <Link
+                <NextUILink
                   href={userProfile?.profileUrl ?? ''}
                   size="sm"
                   isExternal
                   className="text-xs text-white transition-colors hover:text-algo-yellow"
                 >
                   {userProfile?.username}
-                </Link>
+                </NextUILink>
               }
               avatarProps={{ src: userProfile?.avatarUrl ?? '' }}
               className="text-algo-yellow transition-colors hover:text-[#e6cda8]"
@@ -168,14 +170,14 @@ export default function Nav() {
             <User
               name={<p className="pointer-events-none">{userProfile?.name}</p>}
               description={
-                <Link
+                <NextUILink
                   href={userProfile?.profileUrl ?? ''}
                   size="sm"
                   isExternal
                   className="text-xs text-white transition-colors hover:text-algo-yellow"
                 >
                   {userProfile?.username}
-                </Link>
+                </NextUILink>
               }
               avatarProps={{ src: userProfile?.avatarUrl ?? '' }}
               className="text-algo-yellow transition-colors hover:text-[#e6cda8]"

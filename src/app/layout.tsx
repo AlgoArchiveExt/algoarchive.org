@@ -15,7 +15,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NextUIProvider>
-          <ProfileProvider>{children}</ProfileProvider>
+          <ProfileProvider>
+            {children}
+          </ProfileProvider>
         </NextUIProvider>
       </body>
     </html>

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { writeSignedInHeader } from '../actions/UserProfile';
 
 interface Profile {
   username: string | null;
@@ -10,23 +11,27 @@ interface Profile {
 }
 
 const ProfileContext = createContext<Profile | null>(null);
+const defaultProfile: Profile = {
+  username: null,
+  avatarUrl: null,
+  profileUrl: null,
+  name: null,
+};
 
 export const ProfileProvider = ({ children }: { children: React.ReactNode }) => {
-  const [profile, setProfile] = useState<Profile>({
-    username: null,
-    avatarUrl: null,
-    profileUrl: null,
-    name: null,
-  });
+  const [profile, setProfile] = useState<Profile>(defaultProfile);
 
   useEffect(() => {
-    //const githubAccessToken = localStorage.getItem('githubAccessToken'); //production
-    const githubAccessToken = ''; //testing
+    const githubAccessToken = localStorage.getItem('githubAccessToken'); //production
+    // const githubAccessToken = ''; //testing
 
-    if (githubAccessToken) {
+    writeSignedInHeader(githubAccessToken);
+    
+    if (githubAccessToken && !profile.name) {
+      console.log("calling github")
       fetch('https://api.github.com/user', {
         headers: {
-          Authorization: `token ${githubAccessToken}`,
+          Authorization: `Bearer ${githubAccessToken}`,
         },
       })
         .then((response) => {
@@ -53,7 +58,11 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
     }
   }, []);
 
-  return <ProfileContext.Provider value={profile}>{children}</ProfileContext.Provider>;
+  return (
+    <ProfileContext.Provider value={profile}>
+      {children}
+    </ProfileContext.Provider>
+  );
 };
 
 export const useProfile = () => useContext(ProfileContext);
