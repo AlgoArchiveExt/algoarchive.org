@@ -3,8 +3,7 @@
 import { useInput } from '@nextui-org/react';
 import React, { forwardRef, useState } from 'react';
 
-import { SearchIcon } from '../Icons';
-import { CloseFilledIcon } from '../Icons';
+import { CloseFilledIcon, SearchIcon } from '../Icons';
 
 const styles = {
   //search bar styling

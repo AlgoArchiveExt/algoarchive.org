@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 
-import Searchbar from '../dashboard/Searchbar';
-import Submissions from '../dashboard/Submissions';
 import { useProfile } from '../ProfileContext';
+import Searchbar from './Searchbar';
+import Submissions from './Submissions';
 
 const Hero = () => {
   const userProfile = useProfile();
