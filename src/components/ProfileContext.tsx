@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
+
 import { writeSignedInHeader } from '../actions/UserProfile';
 
 interface Profile {
@@ -26,9 +27,9 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
     // const githubAccessToken = ''; //testing
 
     writeSignedInHeader(githubAccessToken);
-    
+
     if (githubAccessToken && !profile.name) {
-      console.log("calling github")
+      console.log('calling github');
       fetch('https://api.github.com/user', {
         headers: {
           Authorization: `Bearer ${githubAccessToken}`,
@@ -58,11 +59,7 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
     }
   }, []);
 
-  return (
-    <ProfileContext.Provider value={profile}>
-      {children}
-    </ProfileContext.Provider>
-  );
+  return <ProfileContext.Provider value={profile}>{children}</ProfileContext.Provider>;
 };
 
 export const useProfile = () => useContext(ProfileContext);

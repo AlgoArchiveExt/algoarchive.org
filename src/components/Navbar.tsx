@@ -9,16 +9,14 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  User
+  User,
 } from '@nextui-org/react';
-
 import Link from 'next/link';
-
 import { usePathname } from 'next/navigation';
 
-import { useProfile } from './ProfileContext';
 import { Chatbot, ChevronDown, Flashcards } from './Icons';
 import Logo from './Logo';
+import { useProfile } from './ProfileContext';
 
 export default function Nav() {
   const userProfile = useProfile();

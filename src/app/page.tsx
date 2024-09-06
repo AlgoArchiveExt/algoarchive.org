@@ -10,7 +10,7 @@ import { useProfile } from '../components/ProfileContext';
 
 const HomePage = () => {
   const userProfile = useProfile() as any;
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [_, setIsSignedIn] = useState(false);
   const [alertShown, setAlertShown] = useState(false);
 
   useEffect(() => {

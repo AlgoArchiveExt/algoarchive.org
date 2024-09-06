@@ -1,14 +1,15 @@
-"use server"
+'use server';
 
-import { cookies } from "next/headers";
+import { cookies } from 'next/headers';
 
 export async function writeSignedInHeader(githubAccessToken: string | null) {
   const cookie = cookies();
 
   if (!githubAccessToken) {
-    cookie.delete("signedIn");
+    cookie.delete('signedIn');
+
     return;
   }
 
-  cookie.set("signedIn", "")
+  cookie.set('signedIn', '');
 }
