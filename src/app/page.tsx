@@ -29,9 +29,9 @@ const HomePage = () => {
         userProfile.avatarUrl === null ||
         userProfile.profileUrl === null)
     ) {
-      alert(
-        "Loading...\n In case you haven't already signed in, please sign in with your GitHub account to access all features.",
-      );
+      // alert(
+      //   "Loading...\n In case you haven't already signed in, please sign in with your GitHub account to access all features.",
+      // );
       setAlertShown(true);
     }
   }, [userProfile, alertShown]);
