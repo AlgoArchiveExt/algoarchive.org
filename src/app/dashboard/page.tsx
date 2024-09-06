@@ -2,11 +2,10 @@
 
 import React from 'react';
 
-import AuthRequirement from '@/src/components/AuthRequirement';
 import Hero from '@/src/components/dashboard/Hero';
 import Nav from '@/src/components/Navbar';
 
-const page = () => {
+export default function Page() {
   return (
     <main className="algoarchive">
       <Nav />
@@ -14,5 +13,3 @@ const page = () => {
     </main>
   );
 };
-
-export default AuthRequirement(page);
