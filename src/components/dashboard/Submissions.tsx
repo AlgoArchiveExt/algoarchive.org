@@ -2,7 +2,7 @@ import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/react';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
-import PaginationControls from '../dashboard/PaginationControls'
+import PaginationControls from './PaginationControls';
 
 interface Submission {
   id: number;
