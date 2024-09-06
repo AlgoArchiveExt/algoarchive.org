@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
   // Start Auth Middleware
-  const publicRoutes = ['/'];
+  const publicRoutes = ['/', '/waitlist'];
 
   const pathname = request.nextUrl.pathname;
 
