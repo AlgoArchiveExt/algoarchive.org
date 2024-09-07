@@ -43,8 +43,8 @@ const features: Feature[] = [
 
 export default function FeaturesSection() {
   return (
-    <div className="bg-[#825534] py-16 text-center">
-      <h2 className="mb-12 text-3xl font-semibold text-white">How It Works</h2>
+    <div className="py-16 text-center bg-algo-beige-secondary dark:bg-algo-brown-darker">
+      <h2 className="mb-12 text-3xl font-semibold text-heading dark:text-heading-dark">How It Works</h2>
       {features.map((feature, index) => (
         <div key={index} className="mx-auto mt-16 max-w-7xl px-4">
           <Card isPressable className="mx-auto w-full max-w-4xl" style={{ backgroundColor: '#ee9b01' }}>
@@ -67,8 +67,8 @@ export default function FeaturesSection() {
                 />
               </motion.div>
               <div className="flex-1 p-4 text-center sm:text-left">
-                <h2 className="text-4xl font-bold text-[#14142B]">{feature.title}</h2>
-                <p className="mt-4 text-lg text-[#4E4B66]">{feature.description}</p>
+                <h2 className="text-4xl font-bold text-heading dark:text-heading-dark">{feature.title}</h2>
+                <p className="mt-4 text-lg text-subheading dark:text-gray-100">{feature.description}</p>
                 <Button
                   href={feature.buttonLink}
                   as={Link}

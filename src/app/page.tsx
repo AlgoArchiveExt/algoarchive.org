@@ -6,7 +6,7 @@ import FeaturesSection from '../components/home/FeaturesSection';
 import HeroSection from '../components/home/HeroSection';
 import TeamSection from '../components/home/TeamSection';
 import Nav from '../components/Navbar';
-import { useProfile } from '../components/ProfileContext';
+import { useProfile } from '../contexts/ProfileContext';
 
 const HomePage = () => {
   const userProfile = useProfile() as any;
