@@ -43,11 +43,11 @@ const features: Feature[] = [
 
 export default function FeaturesSection() {
   return (
-    <div className="py-16 text-center bg-algo-beige-secondary dark:bg-algo-brown-darker">
+    <div className="bg-algo-beige-secondary py-16 text-center dark:bg-algo-brown-darker">
       <h2 className="mb-12 text-3xl font-semibold text-heading dark:text-heading-dark">How It Works</h2>
       {features.map((feature, index) => (
         <div key={index} className="mx-auto mt-16 max-w-7xl px-4">
-          <Card isPressable className="mx-auto w-full max-w-4xl" style={{ backgroundColor: '#ee9b01' }}>
+          <Card className="mx-auto w-full max-w-4xl bg-algo-beige-secondary dark:bg-algo-yellow-dark">
             <CardBody className={`flex flex-col ${index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'}`}>
               <motion.div
                 className="w-full shrink-0 sm:w-1/2"
@@ -72,7 +72,7 @@ export default function FeaturesSection() {
                 <Button
                   href={feature.buttonLink}
                   as={Link}
-                  className="mx-auto mt-6 bg-[#825534] text-white hover:bg-[#f0e6d6] hover:text-black sm:mx-0"
+                  className="mx-auto mt-6 bg-algo-yellow hover:bg-algo-beige-primary dark:bg-algo-brown-darker dark:text-white dark:hover:text-subheading-dark sm:mx-0"
                 >
                   {feature.buttonText}
                 </Button>

@@ -28,9 +28,8 @@ export default function HeroSection() {
               target="_blank"
               showAnchorIcon
               variant="ghost"
-              className="rounded-full bg-gradient-to-r from-algo-gradient-yellow-1 to-algo-gradient-yellow-2 
-                px-6 py-2 
-                text-heading-dark hover:text-heading
+              className="rounded-full bg-gradient-to-r from-algo-gradient-yellow-1 to-algo-gradient-yellow-2 px-6 py-2 
+                text-heading-dark hover:text-subheading-dark
                 dark:from-algo-gradient-yellow-1-dark dark:to-algo-gradient-yellow-2-dark"
             >
               Join the waitlist
