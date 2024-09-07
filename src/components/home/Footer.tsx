@@ -3,12 +3,13 @@
 import { Button } from '@nextui-org/react';
 import { useState } from 'react';
 
-import { DiscordIcon, DiscordIconHover, GithubIcon, GithubIconHover, InstallIcon, InstallIconHover } from '../Icons';
+import { DiscordIcon, DiscordIconHover, GithubIcon, GithubIconHover, InstallIcon, InstallIconHover, UpArrowIcon, UpArrowIconHover } from '../Icons';
 
 export default function Footer() {
   const [isGithubHovered, setIsGithubHovered] = useState(false);
   const [isDiscordHovered, setIsDiscordHovered] = useState(false);
   const [isInstallHovered, setIsInstallHovered] = useState(false);
+  const [isUpHovered, setIsUpHovered] = useState(false);
 
   return (
     <footer className="bg-algo-gray px-4 py-12 text-center">
@@ -60,6 +61,14 @@ export default function Footer() {
           </Button>
         </div>
       </div>
+      <a 
+        href="#hero"
+        className="absolute right-4 p-2 border border-[#000000] rounded-full hover:bg-black transition-colors shadow-lg"
+        onMouseEnter={() => setIsUpHovered(true)}
+        onMouseLeave={() => setIsUpHovered(false)}
+      >
+        {isUpHovered ? <UpArrowIconHover /> : <UpArrowIcon />}
+      </a>
     </footer>
   );
 }
