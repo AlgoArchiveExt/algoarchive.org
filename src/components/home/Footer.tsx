@@ -3,7 +3,16 @@
 import { Button } from '@nextui-org/react';
 import { useState } from 'react';
 
-import { DiscordIcon, DiscordIconHover, GithubIcon, GithubIconHover, InstallIcon, InstallIconHover, UpArrowIcon, UpArrowIconHover } from '../Icons';
+import {
+  DiscordIcon,
+  DiscordIconHover,
+  GithubIcon,
+  GithubIconHover,
+  InstallIcon,
+  InstallIconHover,
+  UpArrowIcon,
+  UpArrowIconHover,
+} from '../Icons';
 
 export default function Footer() {
   const [isGithubHovered, setIsGithubHovered] = useState(false);
@@ -18,13 +27,13 @@ export default function Footer() {
           AlgoArchive.org
         </h2>
         <nav className="mb-6 flex justify-center space-x-6">
-          <a href="#hero" className="text-white transition-colors hover:text-[#ee9b01]">
+          <a href="#hero" className="text-white transition-colors hover:text-algo-yellow">
             Home
           </a>
-          <a href="/" className="text-white transition-colors hover:text-[#ee9b01]">
+          <a href="/" className="text-white transition-colors hover:text-algo-yellow">
             About
           </a>
-          <a href="#features" className="text-white transition-colors hover:text-[#ee9b01]">
+          <a href="#features" className="text-white transition-colors hover:text-algo-yellow">
             Features
           </a>
         </nav>
@@ -50,10 +59,10 @@ export default function Footer() {
             {isDiscordHovered ? <DiscordIconHover /> : <DiscordIcon />}
           </Button>
           <Button
-            href='https://chromewebstore.google.com/detail/algoarchive/anjcgdjflkjlhaopbilibnbfpialdbpl'
+            href="https://chromewebstore.google.com/detail/algoarchive/anjcgdjflkjlhaopbilibnbfpialdbpl"
             isIconOnly
             variant="bordered"
-            className="border-[#ee9b01] data-[hover=true]:bg-[#ee9b01]"
+            className="border-algo-yellow data-[hover=true]:bg-algo-yellow"
             onMouseEnter={() => setIsInstallHovered(true)}
             onMouseLeave={() => setIsInstallHovered(false)}
           >
@@ -61,9 +70,9 @@ export default function Footer() {
           </Button>
         </div>
       </div>
-      <a 
+      <a
         href="#hero"
-        className="absolute right-4 p-2 border border-[#000000] rounded-full hover:bg-black transition-colors shadow-lg"
+        className="absolute right-4 rounded-full border border-[#000000] p-2 shadow-lg transition-colors hover:bg-black"
         onMouseEnter={() => setIsUpHovered(true)}
         onMouseLeave={() => setIsUpHovered(false)}
       >

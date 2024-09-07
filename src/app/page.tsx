@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 
 import FeaturesSection from '../components/home/FeaturesSection';
-
 import HeroSection from '../components/home/HeroSection';
 import TeamSection from '../components/home/TeamSection';
 import Nav from '../components/Navbar';

@@ -7,14 +7,15 @@ export default function HeroSection() {
     <div className="flex h-screen flex-col items-center justify-center bg-algo-gray text-center">
       <Card className="mx-auto max-w-2xl border-none bg-transparent p-8 shadow-none">
         <CardBody>
-          <h1 className="text-4xl font-bold text-white mb-4">
+          <h1 className="mb-4 text-4xl font-bold text-white">
             Effortlessly synchronize your solutions to GitHub with
-            <span className="bg-gradient-to-r from-[#EE9B01] to-[#f7b801] text-transparent bg-clip-text">
-              {" "} AlgoArchive
+            <span className="bg-gradient-to-r from-[#EE9B01] to-[#f7b801] bg-clip-text text-transparent">
+              {' '}
+              AlgoArchive
             </span>
           </h1>
-          <p className="text-lg text-gray-400 mb-8">
-            Easily sync your LeetCode solutions with GitHub and showcase your programming journey. 
+          <p className="mb-8 text-lg text-gray-400">
+            Easily sync your LeetCode solutions with GitHub and showcase your programming journey.
           </p>
           <div className="flex flex-col items-center space-y-4">
             <Button
@@ -27,7 +28,7 @@ export default function HeroSection() {
             >
               Download
             </Button>
-            <p className="text-base bg-gradient-to-r from-[#EE9B01] to-[#f7b801] text-transparent bg-clip-text">            
+            <p className="bg-gradient-to-r from-[#EE9B01] to-[#f7b801] bg-clip-text text-base text-transparent">
               Get Started by downloading the extension!
             </p>
           </div>
