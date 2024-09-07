@@ -16,7 +16,8 @@ import { usePathname } from 'next/navigation';
 
 import { Chatbot, ChevronDown, Flashcards } from './Icons';
 import Logo from './Logo';
-import { useProfile } from './ProfileContext';
+import { useProfile } from '../contexts/ProfileContext';
+import ThemeToggleButton from './ThemeButton';
 
 export default function Nav() {
   const userProfile = useProfile();
@@ -183,6 +184,8 @@ export default function Nav() {
           </NavbarContent>
         </>
       )}
+
+      <ThemeToggleButton/>
     </Navbar>
   );
 }
