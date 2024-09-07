@@ -9,8 +9,10 @@ const Hero = () => {
   const userName = userProfile?.username || 'User';
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center space-y-8 px-4
-      bg-algo-beige-primary dark:bg-algo-gray">
+    <div
+      className="flex h-screen flex-col items-center justify-center space-y-8 bg-algo-beige-primary
+      px-4 dark:bg-algo-gray"
+    >
       <h1 className="text-4xl font-bold text-heading dark:text-heading-dark">
         Hey <span className="font-extrabold text-algo-yellow dark:text-algo-yellow-dark">{userName}</span>
       </h1>

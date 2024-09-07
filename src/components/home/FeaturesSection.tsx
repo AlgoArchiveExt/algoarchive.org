@@ -31,13 +31,16 @@ export default function FeaturesSection() {
   };
 
   return (
-    <div className="bg-algo-beige-secondary dark:bg-algo-brown-darker py-16 text-center">
+    <div className="bg-algo-beige-secondary py-16 text-center dark:bg-algo-brown-darker">
       <h2 className="mb-12 text-3xl font-semibold text-heading dark:text-heading-dark">How It Works</h2>
 
       {/* Features list mapped to individual cards */}
       <div className="flex flex-col justify-center gap-8 px-4 sm:flex-row">
         {features.map((feature, index) => (
-          <Card key={index} className="w-full rounded-lg border-none bg-white dark:bg-algo-yellow-dark shadow-lg sm:w-80">
+          <Card
+            key={index}
+            className="w-full rounded-lg border-none bg-white shadow-lg dark:bg-algo-yellow-dark sm:w-80"
+          >
             <CardBody className="flex h-full flex-col p-0">
               {/* Container for the image with extra margin on mobile */}
               <div className="mt-6 flex h-48 w-full items-center justify-center overflow-hidden rounded-t-lg sm:mt-0">
@@ -52,7 +55,9 @@ export default function FeaturesSection() {
                 />
               </div>
               <div className="flex grow flex-col justify-between p-6">
-                <h3 className="mb-2 text-center text-xl font-bold text-heading dark:text-heading-dark">{feature.title}</h3>
+                <h3 className="mb-2 text-center text-xl font-bold text-heading dark:text-heading-dark">
+                  {feature.title}
+                </h3>
                 <p className="text-md text-subheading dark:text-gray-100">{feature.description}</p>
               </div>
             </CardBody>

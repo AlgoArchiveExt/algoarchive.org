@@ -14,9 +14,9 @@ import {
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { useProfile } from '../contexts/ProfileContext';
 import { Chatbot, ChevronDown, Flashcards } from './Icons';
 import Logo from './Logo';
-import { useProfile } from '../contexts/ProfileContext';
 import ThemeToggleButton from './ThemeButton';
 
 export default function Nav() {
@@ -37,7 +37,10 @@ export default function Nav() {
       <NavbarContent className="hidden gap-4 sm:flex" justify="center">
         {pathname === '/dashboard' ? (
           <NavbarItem>
-            <Link href="/" className="transitionDuration text-lg transition-colors hover:text-algo-yellow dark:hover:text-algo-yellow">
+            <Link
+              href="/"
+              className="transitionDuration text-lg transition-colors hover:text-algo-yellow dark:hover:text-algo-yellow"
+            >
               Home
             </Link>
           </NavbarItem>
@@ -116,11 +119,9 @@ export default function Nav() {
           avatarProps={{ src: userProfile?.avatarUrl ?? '' }}
           className="text-algo-yellow transition-colors hover:text-[#e6cda8]"
         />
-        
-        <ThemeToggleButton/>
-      
-      </NavbarContent>
 
+        <ThemeToggleButton />
+      </NavbarContent>
     </Navbar>
   );
 }

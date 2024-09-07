@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 export default function ThemeToggleButton() {
-  const [ mounted, setMounted ] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -22,4 +22,4 @@ export default function ThemeToggleButton() {
       {theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
     </button>
   );
-};
+}

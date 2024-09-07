@@ -1,9 +1,9 @@
 import './globals.css';
 
 import { NextUIProvider } from '@nextui-org/react';
+import { ThemeProvider } from 'next-themes';
 
 import { ProfileProvider } from '../contexts/ProfileContext';
-import { ThemeProvider } from 'next-themes';
 
 export default function RootLayout({
   // Layouts must accept a children prop.
@@ -15,15 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-
         <NextUIProvider>
-          <ThemeProvider attribute='class'>
-            <ProfileProvider>
-              {children}
-            </ProfileProvider>
+          <ThemeProvider attribute="class">
+            <ProfileProvider>{children}</ProfileProvider>
           </ThemeProvider>
         </NextUIProvider>
-
       </body>
     </html>
   );
