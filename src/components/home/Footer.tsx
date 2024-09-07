@@ -11,19 +11,19 @@ export default function Footer() {
   const [isInstallHovered, setIsInstallHovered] = useState(false);
 
   return (
-    <footer className="bg-algo-gray px-4 py-32 text-center">
+    <footer className="bg-algo-gray px-4 py-12 text-center">
       <div className="container mx-auto">
         <h2 className="mb-6 bg-gradient-to-r from-[#EE9B01] to-[#f7b801] bg-clip-text text-3xl font-extrabold text-transparent">
           AlgoArchive.org
         </h2>
         <nav className="mb-6 flex justify-center space-x-6">
-          <a href="#hero" className="text-white transition-colors hover:text-algo-yellow">
+          <a href="#hero" className="text-white transition-colors hover:text-[#ee9b01]">
             Home
           </a>
-          <a href="/" className="text-white transition-colors hover:text-algo-yellow">
+          <a href="/" className="text-white transition-colors hover:text-[#ee9b01]">
             About
           </a>
-          <a href="#features" className="text-white transition-colors hover:text-algo-yellow">
+          <a href="#features" className="text-white transition-colors hover:text-[#ee9b01]">
             Features
           </a>
         </nav>
@@ -49,9 +49,10 @@ export default function Footer() {
             {isDiscordHovered ? <DiscordIconHover /> : <DiscordIcon />}
           </Button>
           <Button
+            href='https://chromewebstore.google.com/detail/algoarchive/anjcgdjflkjlhaopbilibnbfpialdbpl'
             isIconOnly
             variant="bordered"
-            className="border-algo-yellow data-[hover=true]:bg-algo-yellow"
+            className="border-[#ee9b01] data-[hover=true]:bg-[#ee9b01]"
             onMouseEnter={() => setIsInstallHovered(true)}
             onMouseLeave={() => setIsInstallHovered(false)}
           >
