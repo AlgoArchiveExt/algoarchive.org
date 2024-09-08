@@ -15,7 +15,6 @@ export function middleware(request: NextRequest) {
   if (!publicRoutes.includes(pathname) && !signedIn) {
     console.log('locked');
 
-    // It's possible request.nextURL.origin doesn't exist on production. Will remove this comment if it does.
     return NextResponse.redirect(new NextURL('/', request.nextUrl.origin));
   }
 }

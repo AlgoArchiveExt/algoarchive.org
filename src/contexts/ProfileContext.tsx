@@ -2,6 +2,8 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
+// import dummy from '@/public/dummy.json';
+
 import { writeSignedInHeader } from '../actions/UserProfile';
 
 interface Profile {
@@ -23,6 +25,9 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
   const [profile, setProfile] = useState<Profile>(defaultProfile);
 
   useEffect(() => {
+    // const dummydata = JSON.stringify(dummy);
+    // localStorage.setItem('algoArchive', dummydata);
+
     const userInfo = JSON.parse(localStorage.getItem('algoArchive') || '{}');
     const githubAccessToken = userInfo.githubAccessToken;
 
