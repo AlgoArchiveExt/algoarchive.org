@@ -11,17 +11,17 @@ export function middleware(request: NextRequest) {
 
   const cookie = cookies();
   const signedIn = cookie.get('signed_in');
-  const hasCookie = cookie.has('signed_in')
+  const hasCookie = cookie.has('signed_in');
 
   if (!publicRoutes.includes(pathname) && !signedIn) {
     console.log('locked');
 
     const response = NextResponse.redirect(new NextURL('/', request.nextUrl.origin));
 
-    response.cookies.set('locked', 'true')
-    response.cookies.set('typeof_cookiestore', typeof cookie)
-    response.cookies.set('signed_in_cookie_exists', hasCookie ? 'true' : 'false')
-    response.cookies.set('typeof_signed_in_cookie', typeof signedIn)
+    response.cookies.set('locked', 'true');
+    response.cookies.set('typeof_cookiestore', typeof cookie);
+    response.cookies.set('signed_in_cookie_exists', hasCookie ? 'true' : 'false');
+    response.cookies.set('typeof_signed_in_cookie', typeof signedIn);
 
     return response;
   }
