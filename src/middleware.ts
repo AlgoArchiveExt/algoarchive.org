@@ -13,17 +13,22 @@ export function middleware(request: NextRequest) {
   const signedIn = cookie.get('signed_in');
   const hasCookie = cookie.has('signed_in');
 
+  const response = NextResponse.next();
+  response.headers.set('Access-Control-Allow-Origin', '*');
+  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+
   if (!publicRoutes.includes(pathname) && !signedIn) {
     console.log('locked');
+    
+    const response2 = NextResponse.redirect(new NextURL('/', request.nextUrl.origin));
+    response2.cookies.set('locked', 'true');
+    response2.cookies.set('signed_in_cookie_exists', hasCookie ? 'true' : 'false');
+    response2.cookies.set('typeof_signed_in_cookie', typeof signedIn);
 
-    const response = NextResponse.redirect(new NextURL('/', request.nextUrl.origin));
-
-    response.cookies.set('locked', 'true');
-    response.cookies.set('signed_in_cookie_exists', hasCookie ? 'true' : 'false');
-    response.cookies.set('typeof_signed_in_cookie', typeof signedIn);
-
-    return response;
+    return response2;
   }
+
+  return response;
 }
 
 export const config = {

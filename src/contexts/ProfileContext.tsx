@@ -5,8 +5,6 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 // import dummy from '@/public/dummy.json';
 import { writeSignedInHeader } from '../actions/UserProfile';
 
-export const runtime = 'edge';
-
 interface Profile {
   username: string | null;
   avatarUrl: string | null;
