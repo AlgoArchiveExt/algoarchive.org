@@ -1,22 +1,18 @@
-import { NextURL } from 'next/dist/server/web/next-url';
-import { cookies } from 'next/headers';
+// import { NextURL } from 'next/dist/server/web/next-url';
+// import { cookies } from 'next/headers';
 import type { NextRequest } from 'next/server';
-import { NextResponse } from 'next/server';
+// import { NextResponse } from 'next/server';
 
-export function middleware(request: NextRequest) {
+export function middleware(_: NextRequest) {
   // Start Auth Middleware
-  const publicRoutes = ['/', '/waitlist'];
-
-  const pathname = request.nextUrl.pathname;
-
-  const cookie = cookies();
-  const signedIn = cookie.get('signedIn');
-
-  if (!publicRoutes.includes(pathname) && !signedIn) {
-    console.log('locked');
-
-    return NextResponse.redirect(new NextURL('/', request.nextUrl.origin));
-  }
+  // const publicRoutes = ['/', '/waitlist'];
+  // const pathname = request.nextUrl.pathname;
+  // const cookie = cookies();
+  // const signedIn = cookie.get('signedIn');
+  // if (!publicRoutes.includes(pathname) && !signedIn) {
+  //   console.log('locked');
+  //   return NextResponse.redirect(new NextURL('/', request.nextUrl.origin));
+  // }
 }
 
 export const config = {
