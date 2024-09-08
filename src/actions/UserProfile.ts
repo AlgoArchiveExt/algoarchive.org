@@ -1,12 +1,12 @@
 'use server';
 
-import { cookies } from 'next/headers';
+import Cookies from 'js-cookie';
 
 export async function writeSignedInHeader(githubAccessToken: string | null) {
-  const cookie = cookies();
+  const cookie = Cookies;
 
   if (!githubAccessToken) {
-    cookie.delete('signed_in');
+    cookie.remove('signed_in');
 
     return;
   }
@@ -16,5 +16,6 @@ export async function writeSignedInHeader(githubAccessToken: string | null) {
     secure: true,
     sameSite: 'lax',
     maxAge: 60 * 60 * 24 * 7, // 1 week
+    domain: 'algoarchive.org',
   });
 }
