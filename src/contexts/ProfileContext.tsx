@@ -3,7 +3,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 // import dummy from '@/public/dummy.json';
-
 import { writeSignedInHeader } from '../actions/UserProfile';
 
 interface Profile {
