@@ -68,6 +68,9 @@ const Submissions = () => {
 
   useEffect(() => {
     const fetchSubmissions = async () => {
+      setLoading(true);
+      setError(null);
+
       try {
         const response = await fetch('/api/submissions', {
           method: 'GET',
@@ -75,17 +78,16 @@ const Submissions = () => {
             'Content-Type': 'application/json',
           },
         });
-
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-
+        
         const data = await response.json();
-        console.log(data);
         setSubmissions(data.solutions);
       } catch (error) {
         console.error('Error when fetching solutions:', error);
         setError('Failed to fetch your submissions');
+        throw error;
       } finally {
         setLoading(false);
       }

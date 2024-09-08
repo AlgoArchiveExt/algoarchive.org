@@ -2,11 +2,10 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
-export async function GET() {
-  const userInfo = JSON.parse(localStorage.getItem('algoArchive') || '{}');
-
-  const token = userInfo.githubAccessToken;
-  const userRepoPath = userInfo.selectedRepoFullName;
+export async function GET(request: Request) {
+  const body = await request.json();
+  console.log(body);
+  const { githubAccessToken: token, selectedRepoFullName: userRepoPath } = body;
 
   if (!token) {
     return NextResponse.json({ error: 'GitHub Access Token is not set' }, { status: 500 });
@@ -20,7 +19,7 @@ export async function GET() {
         'Content-Type': 'application/json',
       },
     });
-
+    
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -29,8 +28,6 @@ export async function GET() {
 
     return NextResponse.json(data, { status: 200 });
   } catch (error) {
-    console.error('Error when fetching solutions:', error);
-
-    return NextResponse.json({ error: 'Failed to fetch submissions' }, { status: 500 });
+    return NextResponse.json({ error }, { status: 500 });
   }
 }
