@@ -38,7 +38,7 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
       method: 'GET',
     });
 
-    if (githubAccessToken && !profile.name) {
+    if (githubAccessToken) {
       fetch('https://api.github.com/user', {
         headers: {
           Authorization: `Bearer ${githubAccessToken}`,
