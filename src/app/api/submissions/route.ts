@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
   if (!token) {
     return NextResponse.json({ error: 'GitHub Access Token is not set' }, { status: 500 });
   }
-  
+
   try {
     const response = await fetch(`https://api.algoarchive.org/v1/solutions/${userRepoPath}`, {
       method: 'GET',
@@ -19,11 +19,9 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json',
       },
     });
-    
+
     if (!response.ok) {
-      console.error('resposne is not ok')
       const json = await response.json();
-      console.log(JSON.stringify(json.error))
 
       throw new Error(`HTTP error! status: ${JSON.stringify(json)}`);
     }
