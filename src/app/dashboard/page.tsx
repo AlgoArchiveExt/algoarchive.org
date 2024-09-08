@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 
 import Hero from '@/src/components/dashboard/Hero';

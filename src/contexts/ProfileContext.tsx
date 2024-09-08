@@ -23,16 +23,8 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
   const [profile, setProfile] = useState<Profile>(defaultProfile);
 
   useEffect(() => {
-    // const dummydata = JSON.stringify(dummy);
-    // localStorage.setItem('algoArchive', dummydata);
-
     const userInfo = JSON.parse(localStorage.getItem('algoArchive') || '{}');
     const githubAccessToken = userInfo.githubAccessToken;
-    // const githubAccessToken = userInfo.githubAccessToke;
-
-    // const setCookie = async () => {
-    //   await fetch(`/api/auth?token=${githubAccessToken}`);
-    // };
 
     fetch(`/api/auth?token=${githubAccessToken}`, {
       method: 'GET',

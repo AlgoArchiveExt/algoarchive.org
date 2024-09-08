@@ -1,3 +1,5 @@
+'use client';
+
 import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/react';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
@@ -13,74 +15,34 @@ interface Submission {
   language: string;
 }
 
-{
-  /* used to test the pagination controls    
-const data = [
-    'entry 1',
-    'entry 2',
-    'entry 3',
-    'entry 4',
-    'entry 5',
-    'entry 6',
-    'entry 7',
-    'entry 8',
-    'entry 9',
-    'entry 10',
-    'entry 11',
-    'entry 12',
-    'entry 13',
-    'entry 14',
-    'entry 15',
-    'entry 16',
-    'entry 17',
-    'entry 18',
-    'entry 19',
-    'entry 20',
-    'entry 21',
-    'entry 22',
-    'entry 23',
-    'entry 24',
-    'entry 25',
-    'entry 26',
-    'entry 27',
-    'entry 28',
-    'entry 29',
-    'entry 30',
-    'entry 31',
-    'entry 32',
-    'entry 33',
-    'entry 34',
-    'entry 35',
-    'entry 36',
-    'entry 37',
-    'entry 38',
-    'entry 39',
-    'entry 40',
-]
-*/
-}
-
-const Submissions = () => {
+export default function Submissions() {
   const searchParams = useSearchParams(); // This is a hook from next/navigation that allows us to access the URL query parameters to properly track the current page and items per page and allow users to navigate between pages while staying on their current page even after reloading the page
   const [submissions, setSubmissions] = useState<Submission[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const userDataString = localStorage.getItem('algoArchive');
+
     const fetchSubmissions = async () => {
       setLoading(true);
       setError(null);
 
       try {
+        if (!userDataString) return null;
+
+        const userData = JSON.parse(userDataString);
+
         const response = await fetch('/api/submissions', {
-          method: 'GET',
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
+          body: JSON.stringify({ token: userData.githubAccessToken, userRepoPath: userData.selectedRepoFullName }),
         });
 
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`HTTP error! status: ${JSON.stringify(response.body)}`);
         }
 
         const data = await response.json();
@@ -163,6 +125,6 @@ const Submissions = () => {
       )}
     </div>
   );
-};
+}
 
-export default Submissions;
+// export default Submissions;

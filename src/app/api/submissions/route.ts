@@ -1,16 +1,16 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
-export async function GET(request: Request) {
+export async function POST(request: NextRequest) {
   const body = await request.json();
-  console.log(body);
-  const { githubAccessToken: token, selectedRepoFullName: userRepoPath } = body;
+
+  const { token, userRepoPath } = body;
 
   if (!token) {
     return NextResponse.json({ error: 'GitHub Access Token is not set' }, { status: 500 });
   }
-
+  
   try {
     const response = await fetch(`https://api.algoarchive.org/v1/solutions/${userRepoPath}`, {
       method: 'GET',
@@ -19,9 +19,13 @@ export async function GET(request: Request) {
         'Content-Type': 'application/json',
       },
     });
-
+    
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      console.error('resposne is not ok')
+      const json = await response.json();
+      console.log(JSON.stringify(json.error))
+
+      throw new Error(`HTTP error! status: ${JSON.stringify(json)}`);
     }
 
     const data = await response.json();
