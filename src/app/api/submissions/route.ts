@@ -3,15 +3,17 @@ import { NextResponse } from 'next/server';
 export const runtime = 'edge';
 
 export async function GET() {
-  // const token = localStorage.getItem('githubAccessToken'); //production
-  const token = process.env.GITHUB_ACCESS_TOKEN; //development
+  const userInfo = JSON.parse(localStorage.getItem('algoArchive') || '{}');
+
+  const token = userInfo.githubAccessToken;
+  const userRepoPath = userInfo.selectedRepoFullName;
 
   if (!token) {
     return NextResponse.json({ error: 'GitHub Access Token is not set' }, { status: 500 });
   }
 
   try {
-    const response = await fetch('https://api.algoarchive.org/v1/solutions/algoarchiveext/commit-testing', {
+    const response = await fetch(`https://api.algoarchive.org/v1/solutions/${userRepoPath}`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
