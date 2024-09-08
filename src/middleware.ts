@@ -19,7 +19,7 @@ export function middleware(request: NextRequest) {
 
   if (!publicRoutes.includes(pathname) && !signedIn) {
     console.log('locked');
-    
+
     const response2 = NextResponse.redirect(new NextURL('/', request.nextUrl.origin));
     response2.cookies.set('locked', 'true');
     response2.cookies.set('signed_in_cookie_exists', hasCookie ? 'true' : 'false');
