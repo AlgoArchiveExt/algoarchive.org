@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@nextui-org/react';
+import { Button, Link } from '@nextui-org/react';
 import { useState } from 'react';
 
 import {
@@ -39,7 +39,9 @@ export default function Footer() {
         </nav>
         <div className="flex justify-center space-x-4">
           <Button
+            as={Link}
             href="https://github.com/AlgoArchiveExt"
+            target="_blank"
             isIconOnly
             variant="bordered"
             className="border-black hover:bg-black dark:border-white dark:hover:bg-white"
@@ -49,7 +51,9 @@ export default function Footer() {
             {isGithubHovered ? <GithubIconHover /> : <GithubIcon />}
           </Button>
           <Button
+            as={Link}
             href="https://discord.gg/CVXJ3w2bRU"
+            target="_blank"
             isIconOnly
             variant="bordered"
             className="border-[#738adb] hover:bg-[#738adb]"
@@ -59,7 +63,9 @@ export default function Footer() {
             {isDiscordHovered ? <DiscordIconHover /> : <DiscordIcon />}
           </Button>
           <Button
+            as={Link}
             href="https://chromewebstore.google.com/detail/algoarchive/anjcgdjflkjlhaopbilibnbfpialdbpl"
+            target="_blank"
             isIconOnly
             variant="bordered"
             className="border-algo-yellow hover:bg-algo-yellow"
