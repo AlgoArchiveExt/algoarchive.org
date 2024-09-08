@@ -78,10 +78,11 @@ const Submissions = () => {
             'Content-Type': 'application/json',
           },
         });
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
         setSubmissions(data.solutions);
       } catch (error) {
