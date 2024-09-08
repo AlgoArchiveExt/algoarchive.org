@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react';
 
 import FeaturesSection from '../components/home/FeaturesSection';
+import Footer from '../components/home/Footer';
 import HeroSection from '../components/home/HeroSection';
-import TeamSection from '../components/home/TeamSection';
 import Nav from '../components/Navbar';
 import { useProfile } from '../contexts/ProfileContext';
 
@@ -39,9 +39,14 @@ const HomePage = () => {
   return (
     <main className="algoarchive">
       <Nav />
-      <HeroSection />
-      <FeaturesSection />
-      <TeamSection />
+      <div id="hero">
+        <HeroSection />
+      </div>
+      <div id="features">
+        <FeaturesSection />
+      </div>
+      {/* <TeamSection /> */}
+      <Footer />
     </main>
   );
 };

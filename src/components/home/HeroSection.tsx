@@ -21,9 +21,9 @@ export default function HeroSection() {
           <p className="mb-8 text-lg text-label dark:text-label-dark">
             Easily sync your LeetCode solutions with GitHub and showcase your programming journey.
           </p>
-          <div className="flex justify-center space-x-4">
+          <div className="flex flex-col items-center space-y-4">
             <Button
-              href="/waitlist"
+              href="https://chromewebstore.google.com/detail/algoarchive/anjcgdjflkjlhaopbilibnbfpialdbpl"
               as={Link}
               target="_blank"
               showAnchorIcon
@@ -32,16 +32,11 @@ export default function HeroSection() {
                 text-heading-dark hover:text-subheading-dark
                 dark:from-algo-gradient-yellow-1-dark dark:to-algo-gradient-yellow-2-dark"
             >
-              Join the waitlist
+              Download
             </Button>
-            {/* <Button
-              href="#"
-              as={Link}
-              variant="solid"
-              className="bg-[#825534] text-white px-6 py-2 rounded-full"
-            >
-              Login
-            </Button> */}
+            <p className="bg-gradient-to-r from-[#EE9B01] to-[#f7b801] bg-clip-text text-base text-transparent">
+              Get Started by downloading the extension!
+            </p>
           </div>
         </CardBody>
       </Card>
