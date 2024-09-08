@@ -9,14 +9,20 @@ export function middleware(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname;
 
+  // Ignore api routes
+  if (pathname.includes('/api')) {
+    return;
+  }
+
   const cookie = cookies();
-  const signedIn = cookie.get('signedIn');
+  const signedIn = cookie.get('signed_in');
 
   if (!publicRoutes.includes(pathname) && !signedIn) {
     console.log('locked');
 
-    // It's possible request.nextURL.origin doesn't exist on production. Will remove this comment if it does.
-    return NextResponse.redirect(new NextURL('/', request.nextUrl.origin));
+    const response = NextResponse.redirect(new NextURL('/', request.nextUrl.origin));
+
+    return response;
   }
 }
 

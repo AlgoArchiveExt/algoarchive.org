@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-import { writeSignedInHeader } from '../actions/UserProfile';
+// import dummy from '@/public/dummy.json';
 
 interface Profile {
   username: string | null;
@@ -23,10 +23,20 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
   const [profile, setProfile] = useState<Profile>(defaultProfile);
 
   useEffect(() => {
+    // const dummydata = JSON.stringify(dummy);
+    // localStorage.setItem('algoArchive', dummydata);
+
     const userInfo = JSON.parse(localStorage.getItem('algoArchive') || '{}');
     const githubAccessToken = userInfo.githubAccessToken;
+    // const githubAccessToken = userInfo.githubAccessToke;
 
-    writeSignedInHeader(githubAccessToken);
+    // const setCookie = async () => {
+    //   await fetch(`/api/auth?token=${githubAccessToken}`);
+    // };
+
+    fetch(`/api/auth?token=${githubAccessToken}`, {
+      method: 'GET',
+    });
 
     if (githubAccessToken) {
       fetch('https://api.github.com/user', {
