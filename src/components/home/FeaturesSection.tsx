@@ -1,64 +1,86 @@
 'use client';
 
-import { Card, CardBody } from '@nextui-org/react';
+import { Button, Card, CardBody, Link } from '@nextui-org/react';
 import { motion } from 'framer-motion';
+import Image from 'next/image'; // Import Image from next/image
+
+// Define types for feature items
+interface Feature {
+  title: string;
+  description: string;
+  image: string;
+  buttonText: string;
+  buttonLink: string;
+}
+
+// Define the features array
+const features: Feature[] = [
+  {
+    title: 'Quickly Submit from LeetCode',
+    description:
+      'Our browser extension helps you instantly submit your LeetCode solutions to your GitHub repository, streamlining the process with just a click.',
+    image: '/assets/coding.png',
+    buttonText: 'Download Extension',
+    buttonLink: 'https://chromewebstore.google.com/detail/algoarchive/anjcgdjflkjlhaopbilibnbfpialdbpl',
+  },
+  {
+    title: 'View Your Submissions',
+    description:
+      'Seamlessly view all your LeetCode submissions directly on our dashboard. Organized and formatted for easy navigation and access to your repositories, helping you track your progress.',
+    image: '/assets/dashboard.png',
+    buttonText: 'Go to Dashboard',
+    buttonLink: 'https://algoarchive.org/dashboard',
+  },
+  {
+    title: 'Track Progress with Analytics',
+    description:
+      'Monitor your coding journey with our powerful analytics, tracking your submissions, problem-solving speed, and areas for improvement to help you grow faster.',
+    image: '/assets/analytics.png',
+    buttonText: 'View Analytics',
+    buttonLink: 'https://algoarchive.org/analytics',
+  },
+];
 
 export default function FeaturesSection() {
-  const features = [
-    {
-      title: 'Connect your LeetCode account',
-      description: 'Use GitHub to quickly log in and seamlessly push your LeetCode solutions to your repository.',
-      image: '/assets/connect.png',
-    },
-    {
-      title: 'Automate Solution Syncing',
-      description:
-        'Streamline your workflow by automatically syncing LeetCode solutions to your GitHub, minimizing manual updates.',
-      image: '/assets/sync.png',
-    },
-    {
-      title: 'Track your progress',
-      description:
-        'Monitor your coding journey with ease and highlight your achievements as you advance through your challenges.',
-      image: '/assets/progress.png',
-    },
-  ];
-
-  // Animation variants for the image
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } },
-  };
-
   return (
-    <div className="bg-[#825534] py-16 text-center">
-      <h2 className="mb-12 text-3xl font-semibold text-white">How It Works</h2>
-
-      {/* Features list mapped to individual cards */}
-      <div className="flex flex-col justify-center gap-8 px-4 sm:flex-row">
-        {features.map((feature, index) => (
-          <Card key={index} className="w-full rounded-lg border-none bg-[#EE9B01] shadow-lg sm:w-80">
-            <CardBody className="flex h-full flex-col p-0">
-              {/* Container for the image with extra margin on mobile */}
-              <div className="mt-6 flex h-48 w-full items-center justify-center overflow-hidden rounded-t-lg sm:mt-0">
-                <motion.img
+    <div className="bg-algo-beige-secondary py-16 text-center dark:bg-algo-brown-darker">
+      <h2 className="mb-12 text-3xl font-semibold text-heading dark:text-heading-dark">How It Works</h2>
+      {features.map((feature, index) => (
+        <div key={index} className="mx-auto mt-16 max-w-7xl px-4">
+          <Card className="mx-auto w-full max-w-4xl bg-algo-beige-secondary dark:bg-algo-yellow-dark">
+            <CardBody className={`flex flex-col ${index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'}`}>
+              <motion.div
+                className="w-full shrink-0 sm:w-1/2"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  transition: { duration: 0.6 },
+                }}
+              >
+                <Image
                   src={feature.image}
                   alt={feature.title}
-                  className="h-auto w-1/2 object-contain sm:w-3/4 md:w-full"
-                  style={{ maxWidth: '50%', height: '70%' }}
-                  variants={imageVariants}
-                  initial="hidden"
-                  animate="visible"
+                  layout="responsive"
+                  width={500} // Adjust width as needed
+                  height={300} // Adjust height as needed
                 />
-              </div>
-              <div className="flex grow flex-col justify-between p-6">
-                <h3 className="mb-2 text-center text-xl font-bold">{feature.title}</h3>
-                <p className="text-md text-gray-100">{feature.description}</p>
+              </motion.div>
+              <div className="flex-1 p-4 text-center sm:text-left">
+                <h2 className="text-4xl font-bold text-heading dark:text-heading-dark">{feature.title}</h2>
+                <p className="mt-4 text-lg text-subheading dark:text-gray-100">{feature.description}</p>
+                <Button
+                  href={feature.buttonLink}
+                  as={Link}
+                  className="mx-auto mt-6 bg-algo-yellow hover:bg-algo-beige-primary dark:bg-algo-brown-darker dark:text-white dark:hover:text-subheading-dark sm:mx-0"
+                >
+                  {feature.buttonText}
+                </Button>
               </div>
             </CardBody>
           </Card>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 }
