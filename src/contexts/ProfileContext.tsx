@@ -23,8 +23,8 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
   const [profile, setProfile] = useState<Profile>(defaultProfile);
 
   useEffect(() => {
-    const userInfo = JSON.parse(localStorage.getItem('algoArchive') || '{}'); 
-    const githubAccessToken = userInfo.githubAccessToken; 
+    const userInfo = JSON.parse(localStorage.getItem('algoArchive') || '{}');
+    const githubAccessToken = userInfo.githubAccessToken;
 
     writeSignedInHeader(githubAccessToken);
 
