@@ -28,7 +28,7 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
 
     writeSignedInHeader(githubAccessToken);
 
-    if (githubAccessToken && !profile.name) {
+    if (githubAccessToken) {
       fetch('https://api.github.com/user', {
         headers: {
           Authorization: `Bearer ${githubAccessToken}`,
