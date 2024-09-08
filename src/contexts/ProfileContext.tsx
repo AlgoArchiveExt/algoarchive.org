@@ -3,7 +3,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 // import dummy from '@/public/dummy.json';
-import { writeSignedInHeader } from '../actions/UserProfile';
 
 interface Profile {
   username: string | null;
@@ -29,8 +28,15 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
 
     const userInfo = JSON.parse(localStorage.getItem('algoArchive') || '{}');
     const githubAccessToken = userInfo.githubAccessToken;
+    // const githubAccessToken = userInfo.githubAccessToke;
 
-    writeSignedInHeader(githubAccessToken);
+    // const setCookie = async () => {
+    //   await fetch(`/api/auth?token=${githubAccessToken}`);
+    // };
+
+    fetch(`/api/auth?token=${githubAccessToken}`, {
+      method: 'GET',
+    });
 
     if (githubAccessToken && !profile.name) {
       fetch('https://api.github.com/user', {
