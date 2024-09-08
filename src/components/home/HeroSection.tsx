@@ -34,7 +34,7 @@ export default function HeroSection() {
             >
               Download
             </Button>
-            <p className="bg-gradient-to-r from-[#EE9B01] to-[#f7b801] bg-clip-text text-base text-transparent">
+            <p className="bg-gradient-to-r from-algo-gradient-yellow-1 to-algo-gradient-yellow-2 bg-clip-text text-base text-transparent dark:from-algo-gradient-yellow-1-dark dark:to-algo-gradient-yellow-2-dark">
               Get Started by downloading the extension!
             </p>
           </div>

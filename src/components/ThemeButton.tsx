@@ -2,6 +2,8 @@
 
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import { BsSunFill } from 'react-icons/bs';
+import { FaMoon } from 'react-icons/fa';
 
 export default function ThemeToggleButton() {
   const [mounted, setMounted] = useState(false);
@@ -18,8 +20,16 @@ export default function ThemeToggleButton() {
   }
 
   return (
-    <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-      {theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-    </button>
+    <div
+      className="relative flex h-10 w-20 cursor-pointer items-center rounded-full bg-algo-beige-primary p-1 dark:bg-algo-gray"
+      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+    >
+      <FaMoon className="pl-0.5 text-algo-gray" size={25} />
+      <div
+        className="absolute size-8 rounded-full bg-white shadow-md transition-transform duration-500"
+        style={theme === 'dark' ? { left: '2px' } : { right: '2px' }}
+      />
+      <BsSunFill className="ml-auto pr-0.5 text-yellow-400" size={25} />
+    </div>
   );
 }

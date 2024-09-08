@@ -9,3 +9,12 @@ body {
   min-height: 100vh;
   font-family: "Lexend", sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color 300ms, color 300ms;
+}
+
+.transition-all {
+  transition: all 300ms;
+}

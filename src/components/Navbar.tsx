@@ -37,10 +37,7 @@ export default function Nav() {
       <NavbarContent className="hidden gap-4 sm:flex" justify="center">
         {pathname === '/dashboard' ? (
           <NavbarItem>
-            <Link
-              href="/"
-              className="transitionDuration text-lg transition-colors hover:text-algo-yellow dark:hover:text-algo-yellow"
-            >
+            <Link href="/" className="text-lg transition-all hover:text-algo-yellow dark:hover:text-algo-yellow">
               Home
             </Link>
           </NavbarItem>
@@ -48,7 +45,7 @@ export default function Nav() {
           <NavbarItem>
             <Link
               href="/dashboard"
-              className="transitionDuration text-lg transition-colors hover:text-algo-yellow dark:hover:text-algo-yellow"
+              className="text-lg transition-all hover:text-algo-yellow dark:hover:text-algo-yellow"
             >
               Dashboard
             </Link>
@@ -56,7 +53,7 @@ export default function Nav() {
         )}
 
         <NavbarItem>
-          <Link href="/" className="transitionDuration text-lg transition-colors hover:text-algo-yellow">
+          <Link href="/" className="text-lg transition-all hover:text-algo-yellow">
             Analytics
           </Link>
         </NavbarItem>
@@ -66,7 +63,7 @@ export default function Nav() {
             <DropdownTrigger>
               <Button
                 disableRipple
-                className="transitionDuration bg-transparent p-0 transition-colors data-[hover=true]:bg-transparent data-[hover=true]:text-algo-yellow data-[pressed=true]:text-algo-yellow"
+                className="transitionDuration bg-transparent p-0 transition-all data-[hover=true]:bg-transparent data-[hover=true]:text-algo-yellow data-[pressed=true]:text-algo-yellow"
                 endContent={icons.chevron}
                 radius="sm"
                 variant="light"
