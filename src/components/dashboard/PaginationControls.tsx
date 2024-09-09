@@ -45,7 +45,7 @@ const PaginationControls: FC<PaginationControlsProps & { totalPages: number }> =
           total={totalPages}
           initialPage={1}
           color={'warning'}
-          page={currentPage}
+          page={Number(currPage)}
           onChange={handlePageChange}
           showShadow={true}
         />
