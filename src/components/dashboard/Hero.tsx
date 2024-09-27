@@ -19,7 +19,7 @@ const Hero = () => {
         Hey <span className="font-extrabold text-algo-yellow dark:text-algo-yellow-dark">{userName}</span>
       </h1>
       <h2 className="text-2xl font-semibold text-heading dark:text-heading-dark">Check your studying progress below</h2>
-      <Searchbar />
+      {/* <Searchbar /> */}
       <Suspense fallback={<p>Loading Submissions...</p>}>
         <Submissions />
       </Suspense>
